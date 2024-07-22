@@ -1,14 +1,14 @@
 # jQuery.numeric()
 
-Allows only valid numbers to be typed into a text box. Can take negative numbers and a decimal point. You can also supply a callback that runs when focus is lost and the value in the text box is not a valid number.
+Allows only valid numbers to be typed into a text box. Can take negative numbers and a decimal point. 
+You can also supply a callback that runs when focus is lost and the value in the text box is not a valid number. 
+Also negative only numbers can be set to take.
 
-Original Plugin: http://www.texotela.co.uk/code/jquery/numeric/.
+Original Plugin: https://github.com/nyx-solutions/jquery-numeric
 
 ## Installation
 
-* Install with [npm](https://npmjs.org): `npm install jquery.numeric --save`
-* [Download the latest release][download]
-* Clone the repo: `git clone https://github.com/nox-it/jquery-numeric.git`
+* Clone the repo: `git clone https://github.com/ljudina/jquery-numeric.git`
 
 ## Usage
 
@@ -35,6 +35,9 @@ Original Plugin: http://www.texotela.co.uk/code/jquery/numeric/.
             <br /><br />
             <label for="decimal-2-places">Numbers with up to 2 decimal places:</label>
             <input class="decimal-2-places" type="text" id="decimal-2-places"/>
+            <br /><br />
+            <label for="decimal-2-places-negative-only">Numbers with up to 2 decimal places negative only:</label>
+            <input class="decimal-2-places-negative-only" type="text" id="decimal-2-places-negative-only"/>
             <br /><br />
             <label for="alternative-decimal-separator">Alternative (,) changes to standard (.) decimal separator:</label>
             <input class="alternative-decimal-separator" type="text" id="alternative-decimal-separator"/>
@@ -76,6 +79,8 @@ Original Plugin: http://www.texotela.co.uk/code/jquery/numeric/.
 
             $('.decimal-2-places').numeric({decimalPlaces: 2});
 
+            $('.decimal-2-places-negative-only').numeric({decimalPlaces: 2, negative: true, negativeOnly: true});
+
             $('.alternative-decimal-separator').numeric({altDecimal: ','});
 
             $('.alternative-decimal-separator-reverse').numeric({altDecimal: '.', decimal: ','});
@@ -85,11 +90,12 @@ Original Plugin: http://www.texotela.co.uk/code/jquery/numeric/.
                 function (e) {
                     e.preventDefault();
 
-                    $('.numeric,.integer,.positive,.positive-integer,.decimal-2-places,.alternative-decimal-separator,.alternative-decimal-separator-reverse').removeNumeric();
+                    $('.numeric,.integer,.positive,.positive-integer,.decimal-2-places,.decimal-2-places-negative-only,.alternative-decimal-separator,.alternative-decimal-separator-reverse').removeNumeric();
                 }
             );
         </script>
     </body>
 </html>
 ```
-
+## TODO
+* Create package on [npm](https://npmjs.org)

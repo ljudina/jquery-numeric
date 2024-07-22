@@ -21,6 +21,9 @@
             <label for="decimal-2-places">Numbers with up to 2 decimal places:</label>
             <input class="decimal-2-places" type="text" id="decimal-2-places"/>
             <br /><br />
+            <label for="decimal-2-places-negative-only">Numbers with up to 2 decimal places negative only:</label>
+            <input class="decimal-2-places-negative-only" type="text" id="decimal-2-places-negative-only"/>
+            <br /><br />
             <label for="alternative-decimal-separator">Alternative (,) changes to standard (.) decimal separator:</label>
             <input class="alternative-decimal-separator" type="text" id="alternative-decimal-separator"/>
             <br /><br />
@@ -61,6 +64,8 @@
 
             $('.decimal-2-places').numeric({decimalPlaces: 2});
 
+            $('.decimal-2-places-negative-only').numeric({decimalPlaces: 2, negative: true, negativeOnly: true});
+
             $('.alternative-decimal-separator').numeric({altDecimal: ','});
 
             $('.alternative-decimal-separator-reverse').numeric({altDecimal: '.', decimal: ','});
@@ -70,7 +75,7 @@
                 function (e) {
                     e.preventDefault();
 
-                    $('.numeric,.integer,.positive,.positive-integer,.decimal-2-places,.alternative-decimal-separator,.alternative-decimal-separator-reverse').removeNumeric();
+                    $('.numeric,.integer,.positive,.positive-integer,.decimal-2-places,.decimal-2-places-negative-only,.alternative-decimal-separator,.alternative-decimal-separator-reverse').removeNumeric();
                 }
             );
         </script>
